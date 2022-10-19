@@ -4,11 +4,11 @@ import styled from 'styled-components'
 function SelectInputs() {
   return (
     <InputsDiv>
-        <input type="number" />
-        <input type="number" />
-        <input type="number" />
-        <input type="number" />
-        <input type="number" />
+        <button>5% </button>
+        <button> 10%</button>
+        <button> 15%</button>
+        <button> 25%</button>
+        <button> 50%</button>
         <Input type="number" placeholder='Custom'>
         </Input >
     </InputsDiv>
@@ -22,9 +22,9 @@ const InputsDiv = styled.div`
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     max-width: 327px;
-    input{
-        width: 110px;
-        height: 34px;
+    button{
+        /* width: 140px; */
+        height: 48px;
         background: #00474B;
         border-radius: 5px;
         color: white;
@@ -49,4 +49,11 @@ const Input = styled.input`
         border: none;
         outline-color:#26C2AE !important;
         color: black !important;
+        /* padding: 6px 17px 6px 19px; */
+        font-family: Space Mono;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 36px;
+        letter-spacing: 0px;
+        text-align: center;
 `;
