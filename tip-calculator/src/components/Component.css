@@ -17,9 +17,17 @@
     letter-spacing: 0px;
     border: none;
     outline-color:#26C2AE;
-    -webkit-appearance: none;
+    
 }
-
+input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+  
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
 .bill{
     font-family: Space Mono;
     font-size: 16px;
@@ -28,7 +36,4 @@
     letter-spacing: 0px;
     text-align: left;
 
-}
-.numOfIm{
-    background-image: url(../components/assets/icon-person.svg);
 }

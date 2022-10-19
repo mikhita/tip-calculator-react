@@ -45,5 +45,5 @@ const Input = styled.input`
         letter-spacing: 0px;
         border: none;
         outline-color:#26C2AE;
-        -webkit-appearance: none;
+       
 `
