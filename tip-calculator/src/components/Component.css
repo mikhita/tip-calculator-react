@@ -1,5 +1,6 @@
 #inputBill{
-    background-image: url(./assets/icon-dollar.svg);
+    background: #F3F9FA;
+    background-image: url(../components/assets/icon-person.svg);
     background-repeat: no-repeat;
     background-position-x:17px;
     background-position-y:17px;
@@ -14,7 +15,19 @@
     font-weight: 700;
     line-height: 36px;
     letter-spacing: 0px;
+    border: none;
+    outline-color:#26C2AE;
+    
 }
+input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+  
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
 .bill{
     font-family: Space Mono;
     font-size: 16px;
