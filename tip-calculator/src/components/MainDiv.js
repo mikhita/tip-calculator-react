@@ -48,6 +48,8 @@ const MainDivs = styled.div`
     justify-content: space-around;
     border-radius: 25px;
     margin: 0%;
+    
+
   }
 `;
 const WhiteSide = styled.div`
@@ -80,7 +82,7 @@ const GreenSide = styled.div`
 const ResetB = styled.button`
         margin-top: 32px;
         width: -webkit-fill-available;
-        background: #26C2AE;
+        background: #0D686D;
         border-radius: 5px;
         height: 48px;
         border: none;
@@ -90,9 +92,12 @@ const ResetB = styled.button`
         line-height: 30px;
         letter-spacing: 0px;
         text-align: center;
-
+        &:hover {
+            cursor: pointer;
+            background: #9FE8DF;;
+        }
         @media (min-width: 950px) {
-        margin-top: 100px;
+            margin-top: 100px;
         }
 `;
 

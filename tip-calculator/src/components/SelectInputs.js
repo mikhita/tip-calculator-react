@@ -41,8 +41,14 @@ const InputsDiv = styled.div`
         text-align: center;
         outline:none;
         -webkit-appearance: none;
-
+        :hover {
+          cursor: pointer;
+          background-color: #9FE8DF;
+          color:black;
+          border: none;
+        }
     }
+    
 `;
 
 const Input = styled.input`
@@ -60,4 +66,8 @@ const Input = styled.input`
         line-height: 36px;
         letter-spacing: 0px;
         text-align: center;
+        &:hover{
+          cursor: pointer;
+          border: 1px solid #26C2AE;
+        }
 `;

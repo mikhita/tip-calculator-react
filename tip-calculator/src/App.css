@@ -8,6 +8,7 @@
 }
 body{
   background-color: #96e9d1;
+  transition-duration: 1s;
 }
 
 .splitter{

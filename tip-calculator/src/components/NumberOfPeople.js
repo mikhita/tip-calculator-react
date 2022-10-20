@@ -45,5 +45,13 @@ const Input = styled.input`
         letter-spacing: 0px;
         border: none;
         outline-color:#26C2AE;
-       
+        &:hover{
+            cursor: pointer;
+            border: 2px solid #26C2AE;
+        }
+        @media  (min-width: 950px) {
+    
+            padding-left: 35px;
+    
+        }
 `
