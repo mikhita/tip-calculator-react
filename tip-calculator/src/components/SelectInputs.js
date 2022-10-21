@@ -1,16 +1,39 @@
-import React from 'react'
+import React, {useState}  from 'react'
 import styled from 'styled-components'
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup";
+import schema from '../schema.js';
 
 function SelectInputs() {
+  const [isChoosen, setIsChoosen] = useState();
+  
+
+
+  const handleClick = (value) => { 
+    setIsChoosen(value);
+  };
+  
+  const {register, handleSubmit,  formState: { errors } } = useForm({
+    criteriaMode: "all",
+    resolver: yupResolver(schema)
+  });
+  const onSubmit = data => console.log(data);
+  const array = [5,10,15,25,50];
   return (
     <InputsDiv>
-        <button type='button'>5% </button>
-        <button type='button'> 10%</button>
-        <button type='button'> 15%</button>
-        <button type='button'> 25%</button>
-        <button type='button'> 50%</button>
-        <Input type="number" placeholder='Custom'>
-        </Input >
+    {array.map((item)=>{
+      return <button type='button'  style={{
+        backgroundColor: isChoosen===item ? '#9FE8DF' : '',
+        color: isChoosen===item ? 'black' : '',
+      }} onClick={()=>handleClick(item)}>{item}% </button>
+    })}
+       
+        <form onChange={handleSubmit(onSubmit)}>
+          <Input type="number" value={isChoosen}  placeholder='Custom' {...register("percent")}>
+          {/* {errors.percent && <Ptag role="alert"> {errors.percent.message}</Ptag>} */}
+          
+          </Input >
+        </form>
     </InputsDiv>
   )
 }
@@ -41,8 +64,15 @@ const InputsDiv = styled.div`
         text-align: center;
         outline:none;
         -webkit-appearance: none;
-
+        border: none;
+        :hover {
+          cursor: pointer;
+          background-color: #9FE8DF;
+          color:black;
+          border: none;
+        }
     }
+    
 `;
 
 const Input = styled.input`
@@ -60,4 +90,22 @@ const Input = styled.input`
         line-height: 36px;
         letter-spacing: 0px;
         text-align: center;
+        &:hover{
+          cursor: pointer;
+          border: 1px solid #26C2AE;
+        }
+`;
+const Ptag = styled.p`
+    color:#E17457;
+    font-family: Space Mono;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: right;
+    /* height: 0%; */
+    margin: 0%;
+    /* position: relative;
+    bottom: 78px; */
+
 `;
