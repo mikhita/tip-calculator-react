@@ -92,6 +92,7 @@ const ResetB = styled.button`
         line-height: 30px;
         letter-spacing: 0px;
         text-align: center;
+        text-transform: uppercase;
         &:hover {
             cursor: pointer;
             background: #9FE8DF;;
