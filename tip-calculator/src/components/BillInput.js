@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from "react-hook-form"
 import styled from 'styled-components';
 
-function BillInput() {
+function BillInput(props) {
     const {register, handleSubmit,  formState: { errors } } = useForm({
         criteriaMode: "all"
       });
@@ -16,7 +16,7 @@ function BillInput() {
         <label className='bill' htmlFor='inputBill' style={{margin:"0" , color:" #5E7A7D"}}>Bill</label>
         {errors.billInput && <Ptag role="alert"> {errors.billInput.message}</Ptag>}
             </DivBillError>
-            <input  type="number"   id="inputBill"  placeholder='0' style={{outlineColor:errors.billInput?"#E17052":"", }}
+            <InputBill  type="number"   id="inputBill"  placeholder='0' value={props.value} style={{outlineColor:errors.billInput?"#E17052":"", }}
             {...register("billInput", {
                  min:{
                     value:1,
@@ -26,7 +26,7 @@ function BillInput() {
                     value:100000,
                     message:"can't be more than 100000"
                  }
-                })}/>
+                })}></InputBill>
                 
         </form>
     </div>
@@ -35,6 +35,9 @@ function BillInput() {
 
 export default BillInput
 
+const InputBill = styled.input`
+    
+    `;
 const Ptag = styled.p`
     color:#E17457;
     font-family: Space Mono;

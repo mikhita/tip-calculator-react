@@ -30,7 +30,7 @@ function SelectInputs() {
        
         <form onChange={handleSubmit(onSubmit)}>
           <Input type="number" value={isChoosen}  placeholder='Custom' {...register("percent")}>
-          {/* {errors.percent && <Ptag role="alert"> {errors.percent.message}</Ptag>} */}
+          
           
           </Input >
         </form>
@@ -45,6 +45,7 @@ const InputsDiv = styled.div`
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     max-width: 327px;
+   
     @media (min-width: 950px) {
       grid-template-columns: repeat(3, 1fr);
       max-width: -webkit-fill-available;
@@ -94,18 +95,4 @@ const Input = styled.input`
           cursor: pointer;
           border: 1px solid #26C2AE;
         }
-`;
-const Ptag = styled.p`
-    color:#E17457;
-    font-family: Space Mono;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 24px;
-    letter-spacing: 0px;
-    text-align: right;
-    /* height: 0%; */
-    margin: 0%;
-    /* position: relative;
-    bottom: 78px; */
-
 `;
