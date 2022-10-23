@@ -1,14 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+// import BillInput from './BillInput.js'
 
-// const TipPerPerson = 
+
 
 function TipAmount() {
   return (
     <TipsTotal>
         <TipAmounts>
             <p>Tip Amount <span>/person</span></p>
-            <div>$0.00</div>
+            <div> $ {0.33} </div>
         </TipAmounts>
         <Total>
             <p>Total <span>/person</span></p>

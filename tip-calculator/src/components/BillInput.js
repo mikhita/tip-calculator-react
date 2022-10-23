@@ -16,7 +16,7 @@ function BillInput(props) {
         <label className='bill' htmlFor='inputBill' style={{margin:"0" , color:" #5E7A7D"}}>Bill</label>
         {errors.billInput && <Ptag role="alert"> {errors.billInput.message}</Ptag>}
             </DivBillError>
-            <InputBill  type="number"   id="inputBill"  placeholder='0' value={props.value} style={{outlineColor:errors.billInput?"#E17052":"", }}
+            <InputBill  type="number"   id="inputBill"  placeholder='0' value={props.valueBill} style={{outlineColor:errors.billInput?"#E17052":"", }}
             {...register("billInput", {
                  min:{
                     value:1,
@@ -27,6 +27,7 @@ function BillInput(props) {
                     message:"can't be more than 100000"
                  }
                 })}></InputBill>
+                {console.log(props.value)}
                 
         </form>
     </div>
