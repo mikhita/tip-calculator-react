@@ -16,15 +16,21 @@
     font-weight: 700;
     line-height: 36px;
     letter-spacing: 0px;
-    outline-color:#26C2AE;
-    border-width: 0px;
+    /* outline-color:#26C2AE; */
+    border-width: 2px;
     border-style: solid;
-    border-color: #E17052;
+    border-color: transparent;
+    outline: none;
+
+    
     
 }
 #billInput:hover{
     cursor: pointer;
-    border: 2px solid #26C2AE;
+    border-color: #26C2AE;
+}
+#billInput:focus{
+    border-color: #26C2AE;
 }
 #percent{
     width: 146.63px;
@@ -32,7 +38,6 @@
     background: #F3F9FA !important;
     border-radius: 5px;
     border: none;
-    outline-color:#26C2AE !important;
     color: black !important;
     /* padding: 6px 17px 6px 19px; */
     font-family: Space Mono;
@@ -41,14 +46,21 @@
     line-height: 36px;
     letter-spacing: 0px;
     text-align: center;
-    position: relative;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    outline: none;
+    /* position: relative;
     bottom: 96px;
-    left: 170px;
+    left: 170px; */
 }
 #percent:hover{
     cursor: pointer;
-    border: 1px solid #26C2AE;
+    border-color: #26C2AE;
   }
+#percent:focus{
+    border-color: #26C2AE;
+}
 input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
@@ -72,9 +84,9 @@ input::-webkit-outer-spin-button,
     #billInput{
         padding-left: 35px;
     }
-    #percent{
+    /* #percent{
         width: 107px;
         left: 233px;
-    }
+    } */
     
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./Component.css"
 import styled from 'styled-components'
 import SelectInputs from './SelectInputs.js'
@@ -14,6 +14,10 @@ function MainDiv() {
         resolver: yupResolver(schema)
       });
       const onSubmit = data => console.log(data);
+      const [isChoosen, setIsChoosen] = useState();
+      
+      
+      const array = [5,10,15,25,50];
   return (
     <MainDivs>
         <WhiteSide>
@@ -22,8 +26,8 @@ function MainDiv() {
             placeholder="0" text="Bill" error={errors.billInput && errors.billInput.message }/>
             <SecondP>Select Tip %</SecondP>
             <PercentDiv>
-            <SelectInputs/>
-            <Inputs  type="number" id="percent" register={register} label="percent"/>
+                <SelectInputs isChoosen={isChoosen} setIsChoosen={setIsChoosen} array={array}/>
+                <Inputs value={isChoosen} noMargin onChange={(e)=>setIsChoosen(e.target.value)} type="number" id="percent" register={register} label="percent" error={errors.percent && errors.percent.message }/>
             </PercentDiv>
             <Inputs classname="numogp" type="number" id="billInput" register={register} label="numOfPeople"
             placeholder="0" text="Number Of People" error={errors.numOfPeople && errors.numOfPeople.message } />
@@ -46,12 +50,12 @@ export default MainDiv
 
 const PercentDiv = styled.div`
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     max-width: 327px;
    
     @media (min-width: 950px) {
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       max-width: -webkit-fill-available;
   }
 `;

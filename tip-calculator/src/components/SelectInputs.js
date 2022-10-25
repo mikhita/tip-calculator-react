@@ -1,42 +1,28 @@
-import React, {useState}  from 'react'
+import React  from 'react'
 import styled from 'styled-components'
 
 
 
-function SelectInputs() {
-  const [isChoosen, setIsChoosen] = useState();
-  
+function SelectInputs(props) {
   const handleClick = (value) => { 
-    setIsChoosen(value);
+    props.setIsChoosen(value);
   };
-  
-  const array = [5,10,15,25,50];
   return (
-    <InputsDiv>
-    {array.map((item)=>{
-      return <button key={item} type='button'  style={{
-        backgroundColor: isChoosen===item ? '#9FE8DF' : '',
-        color: isChoosen===item ? 'black' : '',
-      }} onClick={()=>handleClick(item)}>{item}% </button>
+    <>
+    {props.array.map((item)=>{
+      return <InputButton key={item} type='button'  style={{
+        backgroundColor: props.isChoosen===item ? '#9FE8DF' : '',
+        color: props.isChoosen===item ? 'black' : '',
+      }} onClick={()=>handleClick(item)}>{item}% </InputButton>
     })}  
-    </InputsDiv>
+    </>
   )
 }
 
 export default SelectInputs
 
-const InputsDiv = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    max-width: 327px;
-   
-    @media (min-width: 950px) {
-      grid-template-columns: repeat(3, 1fr);
-      max-width: -webkit-fill-available;
-  }
-    button{
-        /* width: 140px; */
+const InputButton = styled.button`
+  
         height: 48px;
         background: #00474B;
         border-radius: 5px;
@@ -57,7 +43,7 @@ const InputsDiv = styled.div`
           color:black;
           border: none;
         }
-    }
+    
     
 `;
 

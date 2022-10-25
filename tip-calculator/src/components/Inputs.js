@@ -4,16 +4,18 @@ import styled from 'styled-components';
 
 
 function Inputs(props) {
-    console.log(props.error)
+    console.log(props?.error)
   return (
 
     <div className='billInpuDiv'>
-            <DivBillError>
+            <DivBillError noMargin={props.noMargin}>
         <label className='bill' htmlFor={props.id} style={{margin:"0" , color:" #5E7A7D", }}>{props.text}</label>
-        <Ptag>{props.error}</Ptag>
+        <Ptag>{props?.error}</Ptag>
         
             </DivBillError>
             <InputBill   type={props.type}
+                onChange={props.onChange}
+                value = {props.value }
                 // error={Boolean(props.errors)}
                 placeholder={props.placeholder}
                 id={props.id}
@@ -21,7 +23,7 @@ function Inputs(props) {
                     valueAsNumber: true,
                     onChange: props.onChange,
                 })} 
-            style={{outlineColor:props.error?"#E17052":"", borderWidth:props.error?"2px":"0px", }}
+            style={{ borderColor:props?.error?"#E17457":"#26C2AE", }}
             defaultValue={props.defaultValue || ""}
             /> 
             
@@ -48,6 +50,7 @@ const DivBillError = styled.div`
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    margin-top: 38px;
+    height: ${(props)=>props.noMargin?"0px":"20px"};
+    margin-top: ${(props)=>props.noMargin?"0px":"38px"};
 `;
 
