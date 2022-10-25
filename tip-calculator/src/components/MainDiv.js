@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./Component.css"
 import styled from 'styled-components'
 import SelectInputs from './SelectInputs.js'
@@ -10,19 +10,27 @@ import Inputs from './Inputs.js'
 function MainDiv() {
     const {register, handleSubmit,  formState: { errors, dirtyFields, isDirty } } = useForm({
         criteriaMode: "all",
+        mode: "onChange",
         resolver: yupResolver(schema)
       });
       const onSubmit = data => console.log(data);
+      const [isChoosen, setIsChoosen] = useState();
+      
+      
+      const array = [5,10,15,25,50];
   return (
     <MainDivs>
         <WhiteSide>
         <form>
-            <Inputs type="number" id="inputBill" register={register} label="inputBill"
-            placeholder="0" text="Bill" />
+            <Inputs type="number" id="billInput" register={register} label="billInput"
+            placeholder="0" text="Bill" error={errors.billInput && errors.billInput.message }/>
             <SecondP>Select Tip %</SecondP>
-            <SelectInputs/>
-            <Inputs classname="numogp" type="number" id="inputBill" register={register} label="inputBill"
-            placeholder="0" text="Number Of People" />
+            <PercentDiv>
+                <SelectInputs isChoosen={isChoosen} setIsChoosen={setIsChoosen} array={array}/>
+                <Inputs value={isChoosen} noMargin onChange={(e)=>setIsChoosen(e.target.value)} type="number" id="percent" register={register} label="percent" error={errors.percent && errors.percent.message }/>
+            </PercentDiv>
+            <Inputs classname="numogp" type="number" id="billInput" register={register} label="numOfPeople"
+            placeholder="0" text="Number Of People" error={errors.numOfPeople && errors.numOfPeople.message } />
         </form>
         </WhiteSide>
         <GreenSide>
@@ -39,6 +47,18 @@ function MainDiv() {
 
 export default MainDiv
 
+
+const PercentDiv = styled.div`
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    max-width: 327px;
+   
+    @media (min-width: 950px) {
+      grid-template-columns: repeat(3, 1fr);
+      max-width: -webkit-fill-available;
+  }
+`;
 
 
 const MainDivs = styled.div`

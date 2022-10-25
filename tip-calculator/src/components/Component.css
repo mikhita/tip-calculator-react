@@ -1,5 +1,5 @@
 
-#inputBill{
+#billInput{
     background: #F3F9FA;
     background-image: url(../components/assets/icon-dollar.svg);
     background-repeat: no-repeat;
@@ -16,13 +16,50 @@
     font-weight: 700;
     line-height: 36px;
     letter-spacing: 0px;
-    border: none;
-    outline-color:#26C2AE;
+    /* outline-color:#26C2AE; */
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    outline: none;
+
+    
     
 }
-#inputBill:hover{
+#billInput:hover{
     cursor: pointer;
-    border: 2px solid #26C2AE;
+    border-color: #26C2AE;
+}
+#billInput:focus{
+    border-color: #26C2AE;
+}
+#percent{
+    width: 146.63px;
+    height: 48px;
+    background: #F3F9FA !important;
+    border-radius: 5px;
+    border: none;
+    color: black !important;
+    /* padding: 6px 17px 6px 19px; */
+    font-family: Space Mono;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0px;
+    text-align: center;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    outline: none;
+    /* position: relative;
+    bottom: 96px;
+    left: 170px; */
+}
+#percent:hover{
+    cursor: pointer;
+    border-color: #26C2AE;
+  }
+#percent:focus{
+    border-color: #26C2AE;
 }
 input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
@@ -33,9 +70,7 @@ input::-webkit-outer-spin-button,
         input[type=number] {
             -moz-appearance: textfield;
         }
-        .numogp{
-            margin-top: 38px !important; 
-        }
+       
 .bill{
     font-family: Space Mono;
     font-size: 16px;
@@ -46,7 +81,12 @@ input::-webkit-outer-spin-button,
     margin: 0%;
 }
 @media only screen and (min-width: 950px) {
-    #inputBill{
+    #billInput{
         padding-left: 35px;
     }
+    /* #percent{
+        width: 107px;
+        left: 233px;
+    } */
+    
 }
