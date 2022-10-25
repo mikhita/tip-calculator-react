@@ -4,23 +4,24 @@ import styled from 'styled-components';
 
 
 function Inputs(props) {
-    
+    console.log(props.error)
   return (
 
     <div className='billInpuDiv'>
             <DivBillError>
         <label className='bill' htmlFor={props.id} style={{margin:"0" , color:" #5E7A7D", }}>{props.text}</label>
         <Ptag>{props.error}</Ptag>
+        
             </DivBillError>
             <InputBill   type={props.type}
-                error={Boolean(props.errors)}
+                // error={Boolean(props.errors)}
                 placeholder={props.placeholder}
                 id={props.id}
                 {...props.register(props.label, {
                     valueAsNumber: true,
                     onChange: props.onChange,
                 })} 
-            style={{outlineColor:props.errors?"#E17052":"", }}
+            style={{outlineColor:props.error?"#E17052":"", borderWidth:props.error?"2px":"0px", }}
             defaultValue={props.defaultValue || ""}
             /> 
             
@@ -40,11 +41,7 @@ const Ptag = styled.p`
     line-height: 24px;
     letter-spacing: 0px;
     text-align: right;
-    /* height: 0%; */
-    margin: 0%;
-    /* position: relative;
-    bottom: 78px; */
-
+    margin: 0%; 
 `;
 const DivBillError = styled.div`
     display: flex;

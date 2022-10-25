@@ -10,6 +10,7 @@ import Inputs from './Inputs.js'
 function MainDiv() {
     const {register, handleSubmit,  formState: { errors, dirtyFields, isDirty } } = useForm({
         criteriaMode: "all",
+        mode: "onChange",
         resolver: yupResolver(schema)
       });
       const onSubmit = data => console.log(data);
@@ -17,12 +18,15 @@ function MainDiv() {
     <MainDivs>
         <WhiteSide>
         <form>
-            <Inputs type="number" id="inputBill" register={register} label="inputBill"
-            placeholder="0" text="Bill" />
+            <Inputs type="number" id="billInput" register={register} label="billInput"
+            placeholder="0" text="Bill" error={errors.billInput && errors.billInput.message }/>
             <SecondP>Select Tip %</SecondP>
+            <PercentDiv>
             <SelectInputs/>
-            <Inputs classname="numogp" type="number" id="inputBill" register={register} label="inputBill"
-            placeholder="0" text="Number Of People" />
+            <Inputs  type="number" id="percent" register={register} label="percent"/>
+            </PercentDiv>
+            <Inputs classname="numogp" type="number" id="billInput" register={register} label="numOfPeople"
+            placeholder="0" text="Number Of People" error={errors.numOfPeople && errors.numOfPeople.message } />
         </form>
         </WhiteSide>
         <GreenSide>
@@ -39,6 +43,18 @@ function MainDiv() {
 
 export default MainDiv
 
+
+const PercentDiv = styled.div`
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+    max-width: 327px;
+   
+    @media (min-width: 950px) {
+      grid-template-columns: repeat(1, 1fr);
+      max-width: -webkit-fill-available;
+  }
+`;
 
 
 const MainDivs = styled.div`
