@@ -1,3 +1,4 @@
+
 #inputBill{
     background: #F3F9FA;
     background-image: url(../components/assets/icon-dollar.svg);
@@ -18,7 +19,6 @@
     border: none;
     outline-color:#26C2AE;
     
-    
 }
 #inputBill:hover{
     cursor: pointer;
@@ -32,6 +32,9 @@ input::-webkit-outer-spin-button,
   
         input[type=number] {
             -moz-appearance: textfield;
+        }
+        .numogp{
+            margin-top: 38px !important; 
         }
 .bill{
     font-family: Space Mono;

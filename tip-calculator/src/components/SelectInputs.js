@@ -1,8 +1,7 @@
 import React, {useState}  from 'react'
 import styled from 'styled-components'
-import { useForm } from "react-hook-form"
-import { yupResolver } from "@hookform/resolvers/yup";
-import schema from '../schema.js';
+
+
 
 function SelectInputs() {
   const [isChoosen, setIsChoosen] = useState();
@@ -13,11 +12,8 @@ function SelectInputs() {
     setIsChoosen(value);
   };
   
-  const {register, handleSubmit,  formState: { errors } } = useForm({
-    criteriaMode: "all",
-    resolver: yupResolver(schema)
-  });
-  const onSubmit = data => console.log(data);
+  
+  
   const array = [5,10,15,25,50];
   return (
     <InputsDiv>
@@ -28,8 +24,8 @@ function SelectInputs() {
       }} onClick={()=>handleClick(item)}>{item}% </button>
     })}
        
-        <form onChange={handleSubmit(onSubmit)}>
-          <Input type="number" value={isChoosen}  placeholder='Custom' {...register("percent")}>
+        <form >
+          <Input type="number" value={isChoosen}  placeholder='Custom' >
           
           
           </Input >

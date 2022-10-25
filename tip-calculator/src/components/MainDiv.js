@@ -1,22 +1,32 @@
 import React from 'react'
-import BillInput from './BillInput.js'
 import "./Component.css"
 import styled from 'styled-components'
 import SelectInputs from './SelectInputs.js'
-import NumberOfPeople from './NumberOfPeople.js'
 import TipAmount from './TipAmount.js'
-
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup";
+import schema from '../schema.js';
+import Inputs from './Inputs.js'
 function MainDiv() {
+    const {register, handleSubmit,  formState: { errors, dirtyFields, isDirty } } = useForm({
+        criteriaMode: "all",
+        resolver: yupResolver(schema)
+      });
+      const onSubmit = data => console.log(data);
   return (
     <MainDivs>
         <WhiteSide>
-            <BillInput/>
+        <form>
+            <Inputs type="number" id="inputBill" register={register} label="inputBill"
+            placeholder="0" text="Bill" />
             <SecondP>Select Tip %</SecondP>
             <SelectInputs/>
-            <NumberOfPeople/>
+            <Inputs classname="numogp" type="number" id="inputBill" register={register} label="inputBill"
+            placeholder="0" text="Number Of People" />
+        </form>
         </WhiteSide>
         <GreenSide>
-           <TipAmount/>   
+           <TipAmount />   
            <ResetB>
             Reset
            </ResetB>
