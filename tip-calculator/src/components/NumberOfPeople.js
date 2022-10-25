@@ -19,7 +19,7 @@ function NumberOfPeople() {
                 <label htmlFor='numOfP'>Number of People</label>
                 {errors.numOfPeople && <Ptag role="alert"> {errors.numOfPeople.message}</Ptag>}
             </DivPep>
-            <Input id="numOfP"  type="number" placeholder='0' value style={{outlineColor:errors.numOfPeople?"#E17052":""}}
+            <Input id="numOfP"  type="number" placeholder='0'  style={{outlineColor:errors.numOfPeople?"#E17052":""}}
             {...register("numOfPeople")}></Input>
         </form>
     </NumOfPeopleDiv>
