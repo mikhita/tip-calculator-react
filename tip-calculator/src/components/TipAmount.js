@@ -5,15 +5,16 @@ import styled from 'styled-components'
 
 
 function TipAmount(props) {
+    
   return (
     <TipsTotal>
         <TipAmounts>
             <p>Tip Amount <span>/person</span></p>
-            <div> $ 0.00 </div>
+            <div> ${props.tip.toFixed(2)} </div>
         </TipAmounts>
         <Total>
             <p>Total <span>/person</span></p>
-            <div>$0.00</div>
+            <div>${props.total.toFixed(2)}</div>
         </Total>
     </TipsTotal>
   )

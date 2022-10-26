@@ -1,40 +1,46 @@
-import React, {useState} from 'react'
+import React, {useState , useEffect} from 'react'
 import "./Component.css"
 import styled from 'styled-components'
 import SelectInputs from './SelectInputs.js'
 import TipAmount from './TipAmount.js'
-import { useForm } from "react-hook-form"
+import { useForm , useWatch } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup";
 import schema from '../schema.js';
 import Inputs from './Inputs.js'
 function MainDiv() {
-    const {register, handleSubmit,  formState: { errors, dirtyFields, isDirty } } = useForm({
+    const {register, handleSubmit, control , formState: { errors, dirtyFields, isDirty } } = useForm({
         criteriaMode: "all",
         mode: "onChange",
         resolver: yupResolver(schema)
       });
       const onSubmit = data => console.log(data);
       const [isChoosen, setIsChoosen] = useState();
-      
-      
+      const [isBill, setIsBill] = useState();
+      const [numPeople, setNumPeople] = useState();
+      const [tipAmount, setTipAmount] = useState(0);
+    const [totalAmount, setTotalAmount] = useState(0);
+
+    const tipReset = (isBill*isChoosen/100)/numPeople
+    const totalReset = (parseInt(isBill)+isBill*isChoosen/100)/numPeople
+    console.log(typeof(isBill))
       const array = [5,10,15,25,50];
   return (
     <MainDivs>
         <WhiteSide>
         <form>
-            <Inputs type="number" id="billInput" register={register} label="billInput"
+            <Inputs type="number" id="billInput" register={register} value={isBill} onChange={(e)=>setIsBill(e.target.value)} label="billInput"
             placeholder="0" text="Bill" error={errors.billInput && errors.billInput.message }/>
             <SecondP>Select Tip %</SecondP>
             <PercentDiv>
                 <SelectInputs isChoosen={isChoosen} setIsChoosen={setIsChoosen} array={array}/>
                 <Inputs value={isChoosen} noMargin onChange={(e)=>setIsChoosen(e.target.value)} type="number" id="percent" register={register} label="percent" error={errors.percent && errors.percent.message }/>
             </PercentDiv>
-            <Inputs classname="numogp" type="number" id="billInput" register={register} label="numOfPeople"
+            <Inputs classname="numogp" value={numPeople} onChange={(e)=>setNumPeople(e.target.value)} type="number" id="numOfPeople" register={register} label="numOfPeople"
             placeholder="0" text="Number Of People" error={errors.numOfPeople && errors.numOfPeople.message } />
         </form>
         </WhiteSide>
         <GreenSide>
-           <TipAmount />   
+           <TipAmount  tip={tipReset} total={totalReset}/>   
            <ResetB>
             Reset
            </ResetB>
