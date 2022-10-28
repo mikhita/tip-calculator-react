@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 
 function Inputs(props) {
-    console.log(props?.error)
   return (
 
     <div className='billInpuDiv'>
@@ -23,7 +22,7 @@ function Inputs(props) {
                     valueAsNumber: true,
                     onChange: props.onChange,
                 })} 
-            style={{ borderColor:props?.error?"#E17457":"#26C2AE", }}
+            style={{ borderColor:props?.error?"#E17457":"#26C2AE", width:props.noMargin?"97%":"",}}
             defaultValue={props.defaultValue || ""}
             /> 
             
@@ -34,6 +33,7 @@ function Inputs(props) {
 export default Inputs
 
 const InputBill = styled.input`
+    
     `;
 const Ptag = styled.p`
     color:#E17457;
