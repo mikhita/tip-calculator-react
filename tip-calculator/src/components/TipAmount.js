@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-// import BillInput from './BillInput.js'
 
 
 
@@ -61,7 +60,8 @@ const TipAmounts = styled.div`
         letter-spacing: -0.6666666865348816px;
         text-align: right;
         color: #26C2AE;
-
+        overflow: hidden;
+        width: 60%;
     }
 `;
 const Total = styled.div`
@@ -102,6 +102,7 @@ const Total = styled.div`
         letter-spacing: -0.6666666865348816px;
         text-align: right;
         color: #26C2AE;
-
+        overflow: hidden;
+        width: 60%;
     }
 `;
